@@ -1,4 +1,6 @@
 import { Badge } from "@/components/ui/badge";
+import { redirect } from 'next/navigation';
+
 
 const blogPosts = [
   {
@@ -28,43 +30,45 @@ const blogPosts = [
 ];
 
 export default function Home() {
-  return (
-    <div className="space-y-8">
-      <header className="mb-12">
-        <h1 className="text-4xl font-bold mb-4">Welcome to My Blog</h1>
-        <p className="text-lg text-muted-foreground">
-          Thoughts on development, design, and technology
-        </p>
-      </header>
+  redirect ('/about');
 
-      <div className="space-y-8">
-        {blogPosts.map((post) => (
-          <article key={post.id} className="border-b pb-8 last:border-b-0">
-            <div className="mb-4">
-              <h2 className="text-2xl font-semibold mb-2 hover:text-primary transition-colors cursor-pointer">
-                {post.title}
-              </h2>
-              <div className="flex items-center text-sm text-muted-foreground mb-3">
-                <time>{post.date}</time>
-                <span className="mx-2">•</span>
-                <span>{post.readTime}</span>
-              </div>
-            </div>
+  // return (
+  //   <div className="space-y-8">
+  //     <header className="mb-12">
+  //       <h1 className="text-4xl font-bold mb-4">Welcome to My Blog</h1>
+  //       <p className="text-lg text-muted-foreground">
+  //         Thoughts on development, design, and technology
+  //       </p>
+  //     </header>
 
-            <p className="text-muted-foreground mb-4 leading-relaxed">
-              {post.excerpt}
-            </p>
+  //     <div className="space-y-8">
+  //       {blogPosts.map((post) => (
+  //         <article key={post.id} className="border-b pb-8 last:border-b-0">
+  //           <div className="mb-4">
+  //             <h2 className="text-2xl font-semibold mb-2 hover:text-primary transition-colors cursor-pointer">
+  //               {post.title}
+  //             </h2>
+  //             <div className="flex items-center text-sm text-muted-foreground mb-3">
+  //               <time>{post.date}</time>
+  //               <span className="mx-2">•</span>
+  //               <span>{post.readTime}</span>
+  //             </div>
+  //           </div>
 
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  );
+  //           <p className="text-muted-foreground mb-4 leading-relaxed">
+  //             {post.excerpt}
+  //           </p>
+
+  //           <div className="flex flex-wrap gap-2">
+  //             {post.tags.map((tag) => (
+  //               <Badge key={tag} variant="secondary" className="text-xs">
+  //                 {tag}
+  //               </Badge>
+  //             ))}
+  //           </div>
+  //         </article>
+  //       ))}
+  //     </div>
+  //   </div>
+  // );
 }
